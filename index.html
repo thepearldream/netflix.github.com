@@ -64,8 +64,20 @@
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
 	  
-	  <script src="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.js"></script>
-<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.4.0/firebase-ui-auth.css" />
+	  <link rel="manifest" href="manifest.json">
+        <script src="https://www.gstatic.com/firebasejs/7.8.2/firebase.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.8.2/firebase-analytics.js"></script>
+
+    <script src="config.js"></script>
+    <script src="common.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="dist/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="dist/firebaseui.css" />
   </head>
 
   <body>
@@ -76,8 +88,64 @@
           <a href="/"><img src="images/dga.png" /></a>
         </div>
         <div class="powered col-xs-6">
-          <a href="https://datastudio.google.com/embed/u/0/reporting/1GephK16QlddQqD7zlnktIExF5ek3S7zX/page/qB7c/"><p>#GreatSchoolsReport</p></a>
+		<h3>Join Our Global Community</h3>
+      <div id="loading">Loading...</div>
+      <div id="loaded" class="hidden">
+        <div id="main">
+          <div id="user-signed-in" class="hidden">
+            <div id="user-info">
+              <div id="photo-container">
+                <img id="photo">
+              </div>
+              <div id="name"></div>
+              <div id="email"></div>
+              <div id="phone"></div>
+              <div id="is-new-user"></div>
+              <div class="clearfix"></div>
+		    
+     
 		<p class="lead"> <a href="https://api.wedreamafrica.com/publish/create">Submit your Story</a></p>
+            </div>
+            <p>
+		     <button href="https://datastudio.google.com/embed/u/0/reporting/1GephK16QlddQqD7zlnktIExF5ek3S7zX/page/qB7c/"><p>#GreatSchoolsReport</button></a>
+              <button id="sign-out">Sign Out*</button>
+              <button id="delete-account">delete account</button>
+            </p>
+          </div>
+          <div id="user-signed-out" class="hidden">
+            <h4>You are signed out of DreamGalaxy. Login to Submit Stories, View Scoreboard or Listen/Watch DreamGalaxy TV</h4>
+            <fieldset>
+              <legend>Options</legend>
+              reCAPTCHA:
+              <label for="recaptcha-normal">
+                <input type="radio" id="recaptcha-normal" name="recaptcha" value="normal">
+                Normal
+              </label>
+              <label for="recaptcha-invisible">
+                <input type="radio" id="recaptcha-invisible" name="recaptcha" value="invisible">
+                Invisible
+              </label><br>
+              Email signIn:
+              <label for="email-signInMethod-password">
+                <input type="radio" id="email-signInMethod-password" name="emailSignInMethod"
+                       value="password">
+                Password
+              </label>
+              <label for="email-signInMethod-emailLink">
+                <input type="radio" id="email-signInMethod-emailLink" name="emailSignInMethod"
+                       value="emailLink">
+                Email Link
+              </label>
+            </fieldset>
+            <p>
+              <button id="sign-in-with-redirect">Sign In with Redirect</button>
+              <button id="sign-in-with-popup">Sign In with Popup</button>
+            </p>
+            
+          </div>
+        </div>
+      </div>
+		
         </div>
       </div>
     </div>
@@ -181,6 +249,10 @@
               We create, share, fund and secure aunthetic culturally relevant brands, stories, and experiences on and offline. Our DreamGalaxy TV curates and distributes engaging educational media and supplementary learning materials for parents and educators globally in any language. DreamGalaxy Studios publishes and creates branded educational media on engaging topics like Languages, Entrepreneurship, Arts, Technology and Policy. DreamGalaxy Labs builds and secures future proof innovations and digital experiences or brands the put culture and humanity first. DreamGalaxy Advisory provides data, intelligence and executive strategy guidance and blueprints to decision makers educating and engaging humanity for locally focused impact with global context in fourth industrial revolution. Join us by sharing your story, sponsoring a story or creating one. We believe that everyone has (everything is) a story and that every story matters. What is your story?
             </span></p>
 		  <a href="https://mssg.me/dreamgalaxy">Contact Us</a></p>
+				<div id="firebaseui-spa">
+              <h5>Join DreamGalaxy Community</h5>
+              <div id="firebaseui-container"></div>
+            </div>
           </div>
       </div>
     </div>
@@ -401,5 +473,7 @@ $(function () {
   }
 })
 </script>
+				
+    <script src="app.js"></script>
   </body>
 </html>
